@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="205" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="152" y="306" width="110" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="LoginButton_TouchUpInside:" destination="BYZ-38-t0r" id="221" eventType="touchUpInside"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="427" translatesAutoresizingMaskIntoConstraints="NO" image="MainLogo">
+                                <rect key="frame" x="87" y="83" width="240" height="128"/>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint id="431" firstItem="427" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="63"/>
+                            <constraint id="432" firstItem="427" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="67"/>
+                            <constraint id="433" firstAttribute="trailingMargin" secondItem="427" secondAttribute="trailing" constant="67"/>
+                            <constraint id="434" firstItem="wfy-db-euE" firstAttribute="top" secondItem="427" secondAttribute="bottom" constant="525"/>
+                            <constraint id="650" firstItem="205" firstAttribute="top" secondItem="427" secondAttribute="bottom" constant="95"/>
+                            <constraint id="651" firstItem="205" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="132"/>
+                            <constraint id="652" firstAttribute="trailingMargin" secondItem="205" secondAttribute="trailing" constant="132"/>
+                            <constraint id="653" firstItem="wfy-db-euE" firstAttribute="top" secondItem="205" secondAttribute="bottom" constant="400"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="LoginButton" destination="205" id="name-outlet-205"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="0.0" y="0.0"/>
+        </scene>
+        <scene sceneID="871">
+            <objects>
+                <viewController id="872" sceneMemberID="viewController" customClass="UserProfileViewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="869"/>
+                        <viewControllerLayoutGuide type="bottom" id="870"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="873">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="881" translatesAutoresizingMaskIntoConstraints="NO" restorationIdentifier="UserImageView">
+                                <rect key="frame" x="112" y="69" width="191" height="172"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="899" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="148" y="292" width="117" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="938" translatesAutoresizingMaskIntoConstraints="NO" restorationIdentifier="UsernameLabel">
+                                <rect key="frame" x="126" y="358" width="162" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1188" translatesAutoresizingMaskIntoConstraints="NO" restorationIdentifier="UserEmailLabel">
+                                <rect key="frame" x="126" y="443" width="184" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint id="882" firstItem="881" firstAttribute="top" secondItem="869" secondAttribute="bottom" constant="49"/>
+                            <constraint id="883" firstItem="881" firstAttribute="leading" secondItem="873" secondAttribute="leadingMargin" constant="92"/>
+                            <constraint id="884" firstAttribute="trailingMargin" secondItem="881" secondAttribute="trailing" constant="91"/>
+                            <constraint id="885" firstItem="870" firstAttribute="top" secondItem="881" secondAttribute="bottom" constant="495"/>
+                            <constraint id="900" firstItem="899" firstAttribute="leading" secondItem="873" secondAttribute="leadingMargin" constant="128"/>
+                            <constraint id="901" firstItem="899" firstAttribute="top" secondItem="881" secondAttribute="bottom" constant="51"/>
+                            <constraint id="902" firstAttribute="trailingMargin" secondItem="899" secondAttribute="trailing" constant="129"/>
+                            <constraint id="903" firstItem="870" firstAttribute="top" secondItem="899" secondAttribute="bottom" constant="423"/>
+                            <constraint id="939" firstItem="938" firstAttribute="top" secondItem="899" secondAttribute="bottom" constant="45"/>
+                            <constraint id="940" firstItem="938" firstAttribute="leading" secondItem="873" secondAttribute="leadingMargin" constant="106"/>
+                            <constraint id="941" firstAttribute="trailingMargin" secondItem="938" secondAttribute="trailing" constant="106"/>
+                            <constraint id="942" firstItem="870" firstAttribute="top" secondItem="938" secondAttribute="bottom" constant="357"/>
+                            <constraint id="1189" firstItem="1188" firstAttribute="leading" secondItem="873" secondAttribute="leadingMargin" constant="106"/>
+                            <constraint id="1190" firstAttribute="trailingMargin" secondItem="1188" secondAttribute="trailing" constant="84"/>
+                            <constraint id="1191" firstItem="1188" firstAttribute="top" secondItem="938" secondAttribute="bottom" constant="64"/>
+                            <constraint id="1192" firstItem="870" firstAttribute="top" secondItem="1188" secondAttribute="bottom" constant="272"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="UserImageView" destination="881" id="name-outlet-881"/>
+                        <outlet property="UsernameLabel" destination="938" id="name-outlet-938"/>
+                        <outlet property="UserEmailLabel" destination="1188" id="name-outlet-1188"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="874" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="513" y="0.0"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="MainLogo" width="319" height="230"/>
+    </resources>
+</document>

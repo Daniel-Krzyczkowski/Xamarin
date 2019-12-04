@@ -10,6 +10,7 @@ using Android.Content;
 using Auth0.Xamarin.Droid.Services.Interfaces;
 using Auth0.Xamarin.Droid.Services;
 using Newtonsoft.Json;
+using System.Threading.Tasks;
 
 namespace Auth0.Xamarin.Droid
 {
@@ -37,6 +38,11 @@ namespace Auth0.Xamarin.Droid
         }
 
         private async void LoginButton_Click(object sender, System.EventArgs e)
+        {
+            await LoginAsync();
+        }
+
+        private async Task LoginAsync()
         {
             var loginResult = await _authenticationService.LoginAsync();
 

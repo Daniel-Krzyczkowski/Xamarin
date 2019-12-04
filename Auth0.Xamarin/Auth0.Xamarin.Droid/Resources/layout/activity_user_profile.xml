@@ -22,10 +22,29 @@
             android:layout_gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hello"
+            android:text="Hello!"
             android:layout_marginTop="26dp"
+            android:gravity="center"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:id="@+id/userProfileTextView"/>
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Username..."
+            android:layout_marginTop="26dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:id="@+id/userProfileNameTextView"/>
+         <TextView
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Email..."
+            android:layout_marginTop="26dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:id="@+id/userProfileEmailTextView"/>
     </LinearLayout>
 </RelativeLayout>
