@@ -5,7 +5,7 @@ This repository contains Xamarin.iOS and Xamarin.Andrid applications code sample
 
 ### Xamarin.iOS application:
 
-![Xamarin iOS application](Auth0.Xamarin\assets\xamarin-oidc-library-10.png) ![Xamarin iOS application](Auth0.Xamarin\assets\xamarin-oidc-library-11.png)
+![Xamarin iOS application](Xamarin\Auth0.Xamarin\assets\xamarin-oidc-library-10.png) ![Xamarin iOS application](Auth0.Xamarin\assets\xamarin-oidc-library-11.png)
 
 ### Xamarin.Android application:
 
