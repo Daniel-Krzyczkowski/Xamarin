@@ -23,14 +23,14 @@ namespace Auth0.Xamarin.Droid.Services
         {
             _auth0Client = new Auth0Client(new Auth0ClientOptions
             {
-                Domain = "devisland.eu.auth0.com",
-                ClientId = "SGyTHu7I6HOLPVKMIoJ58ZqD0aq7vS7A"
+                Domain = "",
+                ClientId = ""
             });
         }
 
         public async Task<LoginResult> LoginAsync()
         {
-            var loginResult = await _auth0Client.LoginAsync(new { audience = "devisland" });
+            var loginResult = await _auth0Client.LoginAsync();
             return loginResult;
         }
     }

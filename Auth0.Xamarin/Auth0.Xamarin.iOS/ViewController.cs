@@ -1,4 +1,5 @@
-﻿using Auth0.Xamarin.iOS.Services;
+﻿using Auth0.Xamarin.iOS.Model;
+using Auth0.Xamarin.iOS.Services;
 using Auth0.Xamarin.iOS.Services.Interfaces;
 using Foundation;
 using System;
@@ -20,6 +21,7 @@ namespace Auth0.Xamarin.iOS
             base.ViewDidLoad();
             // Perform any additional setup after loading the view, typically from a nib.
 
+            LoginButton.BackgroundColor = UIColor.FromRGB(245, 126, 66);
             _authenticationService = new AuthenticationService();
         }
 
@@ -38,9 +40,26 @@ namespace Auth0.Xamarin.iOS
         {
             var loginResult = await _authenticationService.LoginAsync();
 
-            UserProfileViewController controller = new UserProfileViewController();
-            controller.LoginResult = loginResult;
-            this.PresentViewController(controller, true, null);
+            if (!loginResult.IsError)
+            {
+                var name = loginResult.User.FindFirst(c => c.Type == "name")?.Value;
+                var email = loginResult.User.FindFirst(c => c.Type == "email")?.Value;
+                var image = loginResult.User.FindFirst(c => c.Type == "picture")?.Value;
+
+                var userProfile = new UserProfile
+                {
+                    Email = email,
+                    Name = name,
+                    ProfilePictureUrl = image
+                };
+
+                UIStoryboard board = UIStoryboard.FromName("Main", null);
+                UserProfileViewController userProfileViewController = (UserProfileViewController)board.InstantiateViewController("UserProfileViewController");
+
+                userProfileViewController.UserProfile = userProfile;
+                this.PresentViewController(userProfileViewController, true, null);
+
+            }
         }
     }
 }

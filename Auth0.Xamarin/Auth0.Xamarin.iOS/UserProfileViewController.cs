@@ -1,13 +1,13 @@
 ﻿using System;
+using Auth0.Xamarin.iOS.Model;
 using Foundation;
-using IdentityModel.OidcClient;
 using UIKit;
 
 namespace Auth0.Xamarin.iOS
 {
     public partial class UserProfileViewController : UIViewController
     {
-        public LoginResult LoginResult { get; set; }
+        public UserProfile UserProfile { get; set; }
 
         public UserProfileViewController() : base("UserProfileViewController", null)
         {
@@ -33,21 +33,14 @@ namespace Auth0.Xamarin.iOS
 
         private void DisplayProfileInfo()
         {
-            if (!LoginResult.IsError)
-            {
-                var name = LoginResult.User.FindFirst(c => c.Type == "name")?.Value;
-                var email = LoginResult.User.FindFirst(c => c.Type == "email")?.Value;
-                var image = LoginResult.User.FindFirst(c => c.Type == "picture")?.Value;
+                UsernameLabel.Text = UserProfile.Name;
+                UserEmailLabel.Text = UserProfile.Email;
 
-                UsernameLabel.Text = name;
-                UserEmailLabel.Text = email;
-
-                using (var url = new NSUrl(image))
+                using (var url = new NSUrl(UserProfile.ProfilePictureUrl))
                 {
                    var data = NSData.FromUrl(url);
                     UserImageView.Image = UIImage.LoadFromData(data);
                 }
-            }
         }
     }
 }

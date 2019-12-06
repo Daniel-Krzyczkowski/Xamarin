@@ -11,6 +11,7 @@ using Auth0.Xamarin.Droid.Services.Interfaces;
 using Auth0.Xamarin.Droid.Services;
 using Newtonsoft.Json;
 using System.Threading.Tasks;
+using Auth0.Xamarin.Droid.Model;
 
 namespace Auth0.Xamarin.Droid
 {
@@ -46,10 +47,25 @@ namespace Auth0.Xamarin.Droid
         {
             var loginResult = await _authenticationService.LoginAsync();
 
-            var intent = new Intent(this, typeof(UserProfileActivity));
-            var serializedLoginResponse = JsonConvert.SerializeObject(loginResult);
-            intent.PutExtra("LoginResult", serializedLoginResponse);
-            StartActivity(intent);
+            if (!loginResult.IsError)
+            {
+                var name = loginResult.User.FindFirst(c => c.Type == "name")?.Value;
+                var email = loginResult.User.FindFirst(c => c.Type == "email")?.Value;
+                var image = loginResult.User.FindFirst(c => c.Type == "picture")?.Value;
+
+                var userProfile = new UserProfile
+                {
+                    Email = email,
+                    Name = name,
+                    ProfilePictureUrl = image
+                };
+
+                var intent = new Intent(this, typeof(UserProfileActivity));
+                var serializedLoginResponse = JsonConvert.SerializeObject(userProfile);
+                intent.PutExtra("LoginResult", serializedLoginResponse);
+                StartActivity(intent);
+
+            }
         }
 
         protected override void OnNewIntent(Intent intent)

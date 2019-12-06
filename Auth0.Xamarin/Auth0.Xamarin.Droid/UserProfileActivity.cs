@@ -8,10 +8,8 @@ using Android.App;
 using Android.Content;
 using Android.Graphics;
 using Android.OS;
-using Android.Runtime;
-using Android.Views;
 using Android.Widget;
-using IdentityModel.OidcClient;
+using Auth0.Xamarin.Droid.Model;
 using Newtonsoft.Json;
 
 namespace Auth0.Xamarin.Droid
@@ -19,7 +17,7 @@ namespace Auth0.Xamarin.Droid
     [Activity(Label = "UserProfileActivity")]
     public class UserProfileActivity : Activity
     {
-        private LoginResult _loginResult;
+        private UserProfile _userProfile;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -35,24 +33,17 @@ namespace Auth0.Xamarin.Droid
         private void GetLoginResult(Bundle savedInstanceState)
         {
             string loginResultAsJson = Intent.GetStringExtra("LoginResult") ?? string.Empty;
-            _loginResult = JsonConvert.DeserializeObject<LoginResult>(loginResultAsJson);
+            _userProfile = JsonConvert.DeserializeObject<UserProfile>(loginResultAsJson);
         }
 
         private void DisplayProfileInfo()
         {
-            if (!_loginResult.IsError)
-            {
-                var name = _loginResult.User.FindFirst(c => c.Type == "name")?.Value;
-                var email = _loginResult.User.FindFirst(c => c.Type == "email")?.Value;
-                var image = _loginResult.User.FindFirst(c => c.Type == "picture")?.Value;
+                FindViewById<TextView>(Resource.Id.userProfileNameTextView).Text = _userProfile.Name;
+                FindViewById<TextView>(Resource.Id.userProfileEmailTextView).Text = _userProfile.Email;
 
-                FindViewById<TextView>(Resource.Id.userProfileNameTextView).Text = name;
-                FindViewById<TextView>(Resource.Id.userProfileEmailTextView).Text = email;
-
-                var imageBitmap = GetImageBitmapFromUrl(image);
+                var imageBitmap = GetImageBitmapFromUrl(_userProfile.ProfilePictureUrl);
                 FindViewById<ImageView>(Resource.Id.userProfileImageView).SetImageBitmap(imageBitmap);
 
-            }
         }
 
 

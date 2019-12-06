@@ -123,11 +123,11 @@
         <Folder Include="Assets.xcassets\MainLogo.imageset\" />
         <Folder Include="Services\" />
         <Folder Include="Services\Interfaces\" />
+        <Folder Include="Model\" />
     </ItemGroup>
     <ItemGroup>
         <InterfaceDefinition Include="LaunchScreen.storyboard" />
         <InterfaceDefinition Include="Main.storyboard" />
-        <InterfaceDefinition Include="UserProfileViewController.xib" />
     </ItemGroup>
     <ItemGroup>
         <None Include="Info.plist" />
@@ -147,6 +147,7 @@
         </Compile>
         <Compile Include="Services\Interfaces\IAuthenticationService.cs" />
         <Compile Include="Services\AuthenticationService.cs" />
+        <Compile Include="Model\UserProfile.cs" />
     </ItemGroup>
     <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

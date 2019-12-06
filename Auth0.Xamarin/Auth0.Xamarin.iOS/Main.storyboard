@@ -19,12 +19,17 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="205" translatesAutoresizingMaskIntoConstraints="NO">
-                                <rect key="frame" x="152" y="306" width="110" height="30"/>
+                                <rect key="frame" x="20" y="306" width="374" height="46"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Login"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
                                 <connections>
                                     <action selector="LoginButton_TouchUpInside:" destination="BYZ-38-t0r" id="221" eventType="touchUpInside"/>
                                 </connections>
+                                <constraints>
+                                    <constraint id="1924" firstAttribute="height" constant="46"/>
+                                </constraints>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="427" translatesAutoresizingMaskIntoConstraints="NO" image="MainLogo">
                                 <rect key="frame" x="87" y="83" width="240" height="128"/>
@@ -35,10 +40,10 @@
                             <constraint id="432" firstItem="427" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="67"/>
                             <constraint id="433" firstAttribute="trailingMargin" secondItem="427" secondAttribute="trailing" constant="67"/>
                             <constraint id="434" firstItem="wfy-db-euE" firstAttribute="top" secondItem="427" secondAttribute="bottom" constant="525"/>
-                            <constraint id="650" firstItem="205" firstAttribute="top" secondItem="427" secondAttribute="bottom" constant="95"/>
-                            <constraint id="651" firstItem="205" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="132"/>
-                            <constraint id="652" firstAttribute="trailingMargin" secondItem="205" secondAttribute="trailing" constant="132"/>
-                            <constraint id="653" firstItem="wfy-db-euE" firstAttribute="top" secondItem="205" secondAttribute="bottom" constant="400"/>
+                            <constraint id="1925" firstItem="205" firstAttribute="top" secondItem="427" secondAttribute="bottom" constant="95"/>
+                            <constraint id="1927" firstItem="wfy-db-euE" firstAttribute="top" secondItem="205" secondAttribute="bottom" constant="384"/>
+                            <constraint id="1928" firstItem="205" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin"/>
+                            <constraint id="1929" firstItem="205" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin"/>
                         </constraints>
                     </view>
                     <connections>
@@ -51,7 +56,7 @@
         </scene>
         <scene sceneID="871">
             <objects>
-                <viewController id="872" sceneMemberID="viewController" customClass="UserProfileViewController">
+                <viewController id="872" sceneMemberID="viewController" customClass="UserProfileViewController" storyboardIdentifier="UserProfileViewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="869"/>
                         <viewControllerLayoutGuide type="bottom" id="870"/>
@@ -70,13 +75,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="938" translatesAutoresizingMaskIntoConstraints="NO" restorationIdentifier="UsernameLabel">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="938" translatesAutoresizingMaskIntoConstraints="NO" restorationIdentifier="UsernameLabel">
                                 <rect key="frame" x="126" y="358" width="162" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1188" translatesAutoresizingMaskIntoConstraints="NO" restorationIdentifier="UserEmailLabel">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1188" translatesAutoresizingMaskIntoConstraints="NO" restorationIdentifier="UserEmailLabel">
                                 <rect key="frame" x="126" y="443" width="184" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
