@@ -5,10 +5,10 @@ This repository contains Xamarin.iOS and Xamarin.Andrid applications code sample
 
 ### Xamarin.iOS application:
 
-![Xamarin iOS application](assets\xamarin-oidc-library-10.png) ![Xamarin iOS application](assets\xamarin-oidc-library-11.png)
+![Xamarin iOS application](Auth0.Xamarin\assets\xamarin-oidc-library-10.png) ![Xamarin iOS application](Auth0.Xamarin\assets\xamarin-oidc-library-11.png)
 
 ### Xamarin.Android application:
 
-![Xamarin iOS application](assets\xamarin-oidc-library-12.png) ![Xamarin iOS application](assets\xamarin-oidc-library-13.png)
+![Xamarin iOS application](Auth0.Xamarin\assets\xamarin-oidc-library-12.png) ![Xamarin iOS application](Auth0.Xamarin\assets\xamarin-oidc-library-13.png)
 
 You can read more about the integration [under this link](https://auth0.com/docs/quickstart/native/xamarin).
