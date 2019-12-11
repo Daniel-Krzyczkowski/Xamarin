@@ -12,6 +12,7 @@ using Android.Widget;
 using Auth0.OidcClient;
 using Auth0.Xamarin.Droid.Services.Interfaces;
 using IdentityModel.OidcClient;
+using IdentityModel.OidcClient.Browser;
 
 namespace Auth0.Xamarin.Droid.Services
 {
@@ -32,6 +33,11 @@ namespace Auth0.Xamarin.Droid.Services
         {
             var loginResult = await _auth0Client.LoginAsync();
             return loginResult;
+        }
+
+        public async Task<BrowserResultType> LogoutAsync()
+        {
+            return await _auth0Client.LogoutAsync();
         }
     }
 }

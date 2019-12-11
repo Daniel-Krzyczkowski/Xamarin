@@ -60,6 +60,11 @@ namespace Auth0.Xamarin.iOS
                 this.PresentViewController(userProfileViewController, true, null);
 
             }
+
+            else
+            {
+                Console.WriteLine($"An error occurred during login: {loginResult.Error}");
+            }
         }
     }
 }

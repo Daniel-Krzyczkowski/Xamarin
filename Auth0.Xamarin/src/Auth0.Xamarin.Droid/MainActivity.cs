@@ -12,6 +12,7 @@ using Auth0.Xamarin.Droid.Services;
 using Newtonsoft.Json;
 using System.Threading.Tasks;
 using Auth0.Xamarin.Droid.Model;
+using System;
 
 namespace Auth0.Xamarin.Droid
 {
@@ -65,6 +66,11 @@ namespace Auth0.Xamarin.Droid
                 intent.PutExtra("LoginResult", serializedLoginResponse);
                 StartActivity(intent);
 
+            }
+
+            else
+            {
+                Console.WriteLine($"An error occurred during login: {loginResult.Error}");
             }
         }
 
