@@ -1,18 +1,15 @@
 ﻿using Android.App;
 using Android.OS;
-using Android.Support.V7.App;
-using Android.Runtime;
 using Android.Widget;
 using Xamarin.Essentials;
 using Auth0.OidcClient;
 using Android.Content.PM;
 using Android.Content;
-using Auth0.Xamarin.Droid.Services.Interfaces;
-using Auth0.Xamarin.Droid.Services;
 using Newtonsoft.Json;
 using System.Threading.Tasks;
 using Auth0.Xamarin.Droid.Model;
 using System;
+using IdentityModel.OidcClient.Browser;
 
 namespace Auth0.Xamarin.Droid
 {
@@ -24,15 +21,20 @@ namespace Auth0.Xamarin.Droid
     DataScheme = "com.auth0.xamarin.droid",
     DataHost = "devisland.eu.auth0.com",
     DataPathPrefix = "/android/com.auth0.xamarin.droid/callback")]
-    public class MainActivity : AppCompatActivity
+    public class MainActivity : Auth0ClientActivity
     {
-        private IAuthenticationService _authenticationService;
+        private Auth0Client _auth0Client;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             Platform.Init(this, savedInstanceState);
-            _authenticationService = new AuthenticationService();
+
+            _auth0Client = new Auth0Client(new Auth0ClientOptions
+            {
+                Domain = "devisland.eu.auth0.com",
+                ClientId = "SGyTHu7I6HOLPVKMIoJ58ZqD0aq7vS7A"
+            });
 
             SetContentView(Resource.Layout.activity_main);
             var loginButton = FindViewById<Button>(Resource.Id.loginButton);
@@ -46,7 +48,7 @@ namespace Auth0.Xamarin.Droid
 
         private async Task LoginAsync()
         {
-            var loginResult = await _authenticationService.LoginAsync();
+            var loginResult = await _auth0Client.LoginAsync(new { audience = "devisland" });
 
             if (!loginResult.IsError)
             {
@@ -74,18 +76,9 @@ namespace Auth0.Xamarin.Droid
             }
         }
 
-        protected override void OnNewIntent(Intent intent)
+        private async Task<BrowserResultType> LogoutAsync()
         {
-            base.OnNewIntent(intent);
-
-            ActivityMediator.Instance.Send(intent.DataString);
-        }
-
-        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
-        {
-            Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-
-            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            return await _auth0Client.LogoutAsync();
         }
     }
 }

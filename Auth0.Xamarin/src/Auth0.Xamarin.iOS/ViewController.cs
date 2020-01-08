@@ -1,7 +1,6 @@
-﻿using Auth0.Xamarin.iOS.Model;
-using Auth0.Xamarin.iOS.Services;
-using Auth0.Xamarin.iOS.Services.Interfaces;
-using Foundation;
+﻿using Auth0.OidcClient;
+using Auth0.Xamarin.iOS.Model;
+using IdentityModel.OidcClient.Browser;
 using System;
 using System.Threading.Tasks;
 using UIKit;
@@ -10,7 +9,7 @@ namespace Auth0.Xamarin.iOS
 {
     public partial class ViewController : UIViewController
     {
-        private IAuthenticationService _authenticationService;
+        private Auth0Client _auth0Client;
 
         public ViewController(IntPtr handle) : base(handle)
         {
@@ -22,7 +21,12 @@ namespace Auth0.Xamarin.iOS
             // Perform any additional setup after loading the view, typically from a nib.
 
             LoginButton.BackgroundColor = UIColor.FromRGB(245, 126, 66);
-            _authenticationService = new AuthenticationService();
+
+            _auth0Client = new Auth0Client(new Auth0ClientOptions
+            {
+                Domain = "devisland.eu.auth0.com",
+                ClientId = "6O0C8Od6U8tZrr8j0WhL5hq4prBkuQml"
+            });
         }
 
         public override void DidReceiveMemoryWarning()
@@ -38,7 +42,7 @@ namespace Auth0.Xamarin.iOS
 
         private async Task LoginAsync()
         {
-            var loginResult = await _authenticationService.LoginAsync();
+            var loginResult = await _auth0Client.LoginAsync(new { audience = "devisland" });
 
             if (!loginResult.IsError)
             {
@@ -65,6 +69,11 @@ namespace Auth0.Xamarin.iOS
             {
                 Console.WriteLine($"An error occurred during login: {loginResult.Error}");
             }
+        }
+
+        private async Task<BrowserResultType> LogoutAsync()
+        {
+            return await _auth0Client.LogoutAsync();
         }
     }
 }
