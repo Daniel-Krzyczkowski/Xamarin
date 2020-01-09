@@ -18,9 +18,9 @@ namespace Auth0.Xamarin.Droid
     [IntentFilter(
     new[] { Intent.ActionView },
     Categories = new[] { Intent.CategoryDefault, Intent.CategoryBrowsable },
-    DataScheme = "com.auth0.xamarin.droid",
-    DataHost = "devisland.eu.auth0.com",
-    DataPathPrefix = "/android/com.auth0.xamarin.droid/callback")]
+    DataScheme = "YOUR_ANDROID_PACKAGE_NAME",
+    DataHost = "YOUR_DOMAIN",
+    DataPathPrefix = "/android/YOUR_ANDROID_PACKAGE_NAME/callback")]
     public class MainActivity : Auth0ClientActivity
     {
         private Auth0Client _auth0Client;
