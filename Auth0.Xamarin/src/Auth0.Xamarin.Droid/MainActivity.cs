@@ -32,8 +32,8 @@ namespace Auth0.Xamarin.Droid
 
             _auth0Client = new Auth0Client(new Auth0ClientOptions
             {
-                Domain = "devisland.eu.auth0.com",
-                ClientId = "SGyTHu7I6HOLPVKMIoJ58ZqD0aq7vS7A"
+                Domain = "",
+                ClientId = ""
             });
 
             SetContentView(Resource.Layout.activity_main);
