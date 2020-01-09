@@ -42,7 +42,7 @@ namespace Auth0.Xamarin.iOS
 
         private async Task LoginAsync()
         {
-            var loginResult = await _auth0Client.LoginAsync(new { audience = "devisland" });
+            var loginResult = await _auth0Client.LoginAsync();
 
             if (!loginResult.IsError)
             {
