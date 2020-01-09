@@ -32,8 +32,8 @@ namespace Auth0.Xamarin.Droid
 
             _auth0Client = new Auth0Client(new Auth0ClientOptions
             {
-                Domain = "",
-                ClientId = ""
+                Domain = "YOUR_DOMAIN",
+                ClientId = "YOUR_CLIENTID"
             });
 
             SetContentView(Resource.Layout.activity_main);
