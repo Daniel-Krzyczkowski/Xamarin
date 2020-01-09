@@ -24,8 +24,8 @@ namespace Auth0.Xamarin.iOS
 
             _auth0Client = new Auth0Client(new Auth0ClientOptions
             {
-                Domain = "devisland.eu.auth0.com",
-                ClientId = "6O0C8Od6U8tZrr8j0WhL5hq4prBkuQml"
+                Domain = "",
+                ClientId = ""
             });
         }
 
