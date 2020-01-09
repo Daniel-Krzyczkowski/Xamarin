@@ -24,8 +24,8 @@ namespace Auth0.Xamarin.iOS
 
             _auth0Client = new Auth0Client(new Auth0ClientOptions
             {
-                Domain = "",
-                ClientId = ""
+                Domain = "YOUR_DOMAIN",
+                ClientId = "YOUR_CLIENTID"
             });
         }
 
